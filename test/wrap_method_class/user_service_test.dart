@@ -3,7 +3,7 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:unit_test_demo/user_repository.dart';
+import 'package:unit_test_demo/wrap_method_class/user_repository.dart';
 
 // Import the generated mock file
 import 'user_service_test.mocks.dart';
