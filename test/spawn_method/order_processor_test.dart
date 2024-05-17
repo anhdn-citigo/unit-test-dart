@@ -9,7 +9,7 @@ void main() {
     test('calculateTotal returns correct sum', () {
       final orderProcessor = OrderProcessor();
       final prices = [10.0, 20.0, 30.0];
-      final total = orderProcessor.calculateTotal(prices);
+      final total = calculateTotal(prices);
 
       expect(total, 60.0);
     });
@@ -17,7 +17,7 @@ void main() {
     test('calculateTotal returns 0 for empty list', () {
       final orderProcessor = OrderProcessor();
       final prices = <double>[];
-      final total = orderProcessor.calculateTotal(prices);
+      final total = calculateTotal(prices);
 
       expect(total, 0.0);
     });
