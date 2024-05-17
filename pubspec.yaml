@@ -8,10 +8,17 @@ environment:
 
 
 dependencies:
+  flutter:  
+    sdk: flutter
   geolocator: ^9.0.1
+  firebase_core: 
+  firebase_auth:
+
 #   path: ^1.8.0
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   lints: ^2.0.0
   test: ^1.21.0
   mockito:  

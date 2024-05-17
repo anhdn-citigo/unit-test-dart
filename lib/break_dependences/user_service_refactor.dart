@@ -29,6 +29,7 @@ class Session {
   }
   
 }
+
 class UserStore extends UserRepository {
 
   @override

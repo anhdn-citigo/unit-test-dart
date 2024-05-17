@@ -9,7 +9,6 @@ class UserStore {
 }
 
 class UserService {
-
   Future<User> getUserById(String userId) {
     return UserStore().findUserById(userId);
   }
