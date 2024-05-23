@@ -24,7 +24,21 @@ void main() {
 
     test('getUserById returns the correct user', () async {
       // Create a User object to be returned by the mock
-      final mockUser = User(id: '1', name: 'John Doe');
+      final mockUser = UserFacotry().createCorrectUser();
+
+      // Define the behavior of the mock
+      when(mockUserRepository.findUserById('1')).thenAnswer((_) async => mockUser);
+
+      // Call the method under test
+      final user = await userService.getUserById('1');
+
+      // Assert the results
+      expect(user.name, 'John Doe');
+    });
+
+    test('getUserById returns the incorrect user', () async {
+      // Create a User object to be returned by the mock
+      final mockUser = UserFacotry().createUnCorrectUser();
 
       // Define the behavior of the mock
       when(mockUserRepository.findUserById('1')).thenAnswer((_) async => mockUser);
@@ -36,4 +50,21 @@ void main() {
       expect(user.name, 'John Doe');
     });
   });
+}
+
+class UserFacotry {
+  User createCorrectUser() {
+     // Create a User object to be returned by the mock
+     
+      return  User(id: '1', name: 'John Doe');
+
+  }
+
+  User createUnCorrectUser() {
+     // Create a User object to be returned by the mock
+     
+      return  User(id: '1', name: 'John Doe');
+
+  }
+  
 }

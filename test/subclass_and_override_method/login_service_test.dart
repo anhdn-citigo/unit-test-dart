@@ -70,8 +70,22 @@ class MockFirebaseAuthService implements FirebaseAuthService {
   
 }
 
+class Cart {
+  final int id;
+  final String name;
 
-class MockUserCredential extends Mock implements UserCredential { }
+  Cart(this.id, this.name);
+}
+
+class MockCart extends Mock implements Cart {
+  @override
+  int get id => 0;
+}
+
+
+class MockUserCredential extends Mock implements UserCredential {
+  
+ }
 
 class FakeConfirmationResult  implements ConfirmationResult {
   @override
@@ -82,6 +96,8 @@ class FakeConfirmationResult  implements ConfirmationResult {
 
   @override
   String get verificationId => "1";
+
+  
 }
 typedef Callback = void Function(MethodCall call);
 

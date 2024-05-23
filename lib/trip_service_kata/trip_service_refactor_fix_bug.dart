@@ -13,7 +13,6 @@ import 'user.dart';
 import 'user_not_logged_in_exception.dart';
 import 'user_session.dart';
 
-
 class TripService {
    List<Trip> getTripsByUser(User user) {
     User? loggedUser = getloggedUser();
@@ -21,8 +20,8 @@ class TripService {
     bool isFriend = false;
 
     List<Trip> tripList = [];
-    List<User> friends = loggedUser?.friends ?? [];
     if (loggedUser != null) {
+      List<User> friends = loggedUser.friends;
       for (var friend in friends) {
         if (friend.name == user.name) {
           isFriend = true;
@@ -36,7 +35,7 @@ class TripService {
             
       return tripList;
     } else {
-      return [];
+      throw UserNotLoggedInException();
     }
   }
 
@@ -48,4 +47,3 @@ class TripService {
      return TripDAO.findTripsByUser(user);
   }
 }
- 

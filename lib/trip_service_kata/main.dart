@@ -1,19 +1,21 @@
+import 'package:unit_test_demo/trip_service_kata/trip_service_refactor_fix_bug.dart';
+
 import 'trip.dart';
 import 'trip_database.dart';
-import 'trip_service_original.dart';
+// import 'trip_service_original.dart';
 import 'user.dart';
 import 'user_session.dart';
 
 void main() {
   // Create some users
-  User alice = User('Alice');
-  User bob = User('Bob');
-  User charlie = User('Charlie');
+  User alice = User('Alice', friends: []);
+  User bob = User('Bob', friends: []);
+  User charlie = User('Charlie', friends: []);
 
   // Set up friendships
-  alice.friends.add(bob);
-  bob.friends.add(alice);
-  charlie.friends.add(bob);
+  bob.addFriend(alice);
+  bob.addFriend(charlie);
+  charlie.addFriend(bob);
 
   // Create some trips
   Trip trip1 = Trip('Paris', DateTime(2023, 5, 1), DateTime(2023, 5, 10));
@@ -24,9 +26,9 @@ void main() {
 
   // Set the logged-in user
   UserSession.instance.loggedUser = bob;
-
   // Create TripService instance
   TripService tripService = TripService();
+
 
   // Get trips for Alice
   try {
@@ -41,7 +43,7 @@ void main() {
 
   // Get trips for Charlie (should be empty since Bob is not Charlie's friend)
   try {
-    List<Trip> trips = tripService.getTripsByUser(charlie);
+    List<Trip> trips = tripService.getTripsByUser(alice);
     print('Trips for Charlie:');
     for (Trip trip in trips) {
       print('${trip.destination} from ${trip.startDate} to ${trip.endDate}');
