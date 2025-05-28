@@ -1,11 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Trợ lý hỗ trợ thông minh</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    div {
+      width: 80%;
+    }
+
+    .container {
+      background-color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-radius: 48px;
+      padding: 32px;
+      max-width: 500px;
+      text-align: left;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.8em;
+    }
+
+    p {
+      color: #555;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-top: 16px;
+      color: #444;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    elevenlabs-convai {
+      margin-top: 24px;
+    }
+  </style>
 </head>
+
 <body>
-  <elevenlabs-convai agent-id="agent_01jvnrzyykf1jrge8vnw32697p"></elevenlabs-convai>
+
+  <div class="row">
+    <h1>Trợ lý AI</h1>
+    <div>
+
+      <p>Tôi có thể giúp bạn tìm hiểu thông tin, giải thích quy định, hoặc hỗ trợ các vấn đề thường gặp.</p>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <p>"Làm thế nào để xuất hóa đơn cho khách hàng cá nhân?"</p>
+    </div>
+    <elevenlabs-convai agent-id="agent_01jwagxnthfpja43bmts5bz2rh"></elevenlabs-convai>
+
+  </div>
   <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
 </body>
+
 </html>
